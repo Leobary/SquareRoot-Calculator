@@ -1,0 +1,60 @@
+@{
+    ViewData["Title"] = "Square Root Calculator";
+    
+}
+
+<div class="text-center">
+    <h1 class="display-4">SquareRoot Calculator</h1>
+    <p>This is a web application that displays the squareroot of any two numbers entered and tells the user, the higher squareroot entered.</a>.</p>
+</div>
+
+<div>
+    <h4>Input</h4>
+    <div>
+        <form asp-controller="Calc" asp-action="SqrtCalc" method="POST">
+            <p>Enter the first number: <input type="number" placeholder="First Number" name="num1"></p>
+            <p>Enter the second number: <input type="number" placeholder="Second Number" name="num2"></p>
+            <button type="submit">SUBMIT</button>
+        </form>
+    </div> 
+</div>
+
+@{    
+    if (ViewBag.firNum > ViewBag.secNum)
+    {
+    <div>
+        <h4>Output</h4>
+        <div>
+            <p>The squareroot of <span style="font-weight: bold;">@ViewBag.firNum</span> is <span style="font-weight: bold;">@ViewBag.sqrtFirNum</span></p>
+            <p>The squareroot of <span style="font-weight: bold;">@ViewBag.secNum</span> is <span style="font-weight: bold;">@ViewBag.sqrtSecNum</span></p>
+        </div>
+        <div>
+            <h3>Result</h3>
+            <p>The number <span style="font-weight: bold;">@ViewBag.firNum</span> with squareroot, <span style="font-weight: bold;">@ViewBag.sqrtFirNum</span> has a higher squareroot than the number <span style="font-weight: bold;">@ViewBag.secNum</span> with squareroot, <span style="font-weight: bold;">@ViewBag.sqrtSecNum</span>.</p>
+        </div>
+    </div>  
+    }
+
+    else if (ViewBag.firNum < ViewBag.secNum)
+    {
+    <div>
+        <h4>Output</h4>
+        <div>
+            <p>The squareroot of <span style="font-weight: bold;">@ViewBag.firNum</span> is <span style="font-weight: bold;">@ViewBag.sqrtFirNum</span></p>
+            <p>The squareroot of <span style="font-weight: bold;">@ViewBag.secNum</span> is <span style="font-weight: bold;">@ViewBag.sqrtSecNum</span></p>
+        </div>
+        <div>
+            <h3>Result</h3>
+            <p>The number <span style="font-weight: bold;">@ViewBag.secNum</span> with squareroot, <span style="font-weight: bold;">@ViewBag.sqrtSecNum</span> has a higher squareroot than the number <span style="font-weight: bold;">@ViewBag.firNum</span> with squareroot, <span style="font-weight: bold;">@ViewBag.sqrtFirNum</span>.</p>
+        </div>
+    </div> 
+    }
+
+    else if (ViewBag.firNum == ViewBag.secNum)
+    {
+        <div>
+            <p>The numbers have the same squareroot <span style="font-weight: bold;">@ViewBag.sqrtSecNum</span>. <br>
+            Why not try different numbers.</p>
+        </div> 
+    }
+}
