@@ -12,12 +12,17 @@
     <h4>Input</h4>
     <div>
         <form asp-controller="Calc" asp-action="SqrtCalc" method="POST">
-            <p>Enter the first number: <input type="number" placeholder="First Number" name="num1"></p>
-            <p>Enter the second number: <input type="number" placeholder="Second Number" name="num2"></p>
+            <p>Enter the first number: <input type="number" placeholder="First Number" name="num1" required></p>
+            <p>Enter the second number: <input type="number" placeholder="Second Number" name="num2" required></p>
             <button type="submit">SUBMIT</button>
         </form>
     </div> 
 </div>
+
+@* if(firstNumber is null || secondNumber is null)
+{
+    ViewBag.ErrorMessage = “Invalid Numbers entered”;
+} *@
 
 @{    
     if (ViewBag.firNum > ViewBag.secNum)
